@@ -31,9 +31,6 @@ export const metaReducers: MetaReducer<AppState>[] = !environment.production
     ? [logger]
     : [];
 
-// TODO: if needed, intall persistance (localStorageSyncReducer)
-// TODO: if needed install ngrx storeFreeze metareducer
-
 /** Logs action dispatched For debug purpose */
 export function logger(
     reducer: ActionReducer<AppState>

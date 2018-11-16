@@ -19,17 +19,13 @@ export class NoteService {
     public getNotes(take: number = 10, skip: number = 0): Observable<Note[]> {
         return this.fileService.getPrivateNoteIndex()
             .pipe(
-                // tap(x => console.log('getNotes, note index read:', x)),
                 switchMap((nindex: NoteIndex) => {
                     const sorted = Object.keys(nindex)
                         .filter(key => key ? true : false) // avoid undefined keys (after deletion)
                         .sort((a, b) => b.localeCompare(a));
                     return of(sorted.slice(skip, skip + take));
                 }),
-                // tap(x => console.log('getNotes, ids sliced :', x)),
-
                 mergeMap(arr => forkJoin(...arr.map(id => this.fileService.getPrivateNote(id)))),
-                // tap(x => console.log('getNotes, mergeMap forkJoin :', x)),
             );
     }
 
@@ -63,25 +59,17 @@ export class NoteService {
             created: note.id ? note.created : nowDate,
             updated: nowDate
         };
-        // 1 get note index
         return this.fileService.getPrivateNoteIndex()
             .pipe(
                 tap(x => console.log('[writeNote] note index read:', x)),
                 map((nindex: NoteIndex) => {
-                    // 2 add id to node index
                     nindex[toSave.id] = FileService.getPrivateNotePath(toSave.id);
                     return nindex;
                 }),
-                // tap(x => console.log('note index updated:', x)),
-                // 3 write node list private/noteslist.json
-                switchMap((nindex: NoteIndex) => this.fileService.writeNoteIndex(nindex)), // not usefull when deletion is performed
-                // tap(x => console.log('note index saved:', x)),
+                switchMap((nindex: NoteIndex) => this.fileService.writeNoteIndex(nindex)),
 
-                // 4 write file private/notes/note_timestamp.json
                 switchMap((success: boolean) => this.fileService.writePrivateNote(toSave)),
                 tap(x => console.log('note saved:', x))
-
-                // TODO: revert note index if file could not be stored : enforce consistency
             );
     }
 

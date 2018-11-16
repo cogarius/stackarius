@@ -21,7 +21,6 @@ export class ContactsEffects {
     getmycontacts$ = this.actions$.pipe(
         ofType(ContactsActionTypes.GetMyContactsBeginType),
         tap(x => console.log('getmycontacts effects starts:', x)),
-        // TODO: switchmap or mergemap here???
         mergeMap((a: GetMyContactsBegin) => this.service.getPrivateContactList()
             .pipe(
                 tap(x => console.log('getmycontacts found contacts.length: ', x.length)),
@@ -40,7 +39,6 @@ export class ContactsEffects {
     successCallbackAndDataDependency$ = this.actions$
         .pipe(
             ofType(ContactsActionTypes.GetMyContactsSuccessType),
-            // TODO: switchmap or mergemap here???
             mergeMap((x: GetMyContactsSuccess) => {
                 if (x.payload.successCallback) {
                     console.log('successCallbackAndDataDependency will dispatch two actions since successCallback detected ');

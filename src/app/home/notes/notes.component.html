@@ -1,5 +1,5 @@
 <div class="section-title">
-  Notes
+    Notes
 </div>
 <div>
     Add, update, remove and view notes that only you can read. To add a contnote click the button below.
@@ -7,7 +7,7 @@
 
 
 <button type="button" class="btn btn-icon" (click)="newNote()">
-  <clr-icon shape="plus"></clr-icon> add a private note
+    <clr-icon shape="plus"></clr-icon> add a private note
 </button>
 <span *ngIf="isPending$ | async" class="spinner spinner-inline">
     Loading...
@@ -15,9 +15,6 @@
 
 
 <div class=" clr-row  clr-align-self-center clr-justify-content-center" *ngFor="let note of mynotes$ | async as note">
-    <!-- <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-        {{note.updated}}
-    </div> -->
     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
         <div class="card clickable">
             <div class="card-header note-title">

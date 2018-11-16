@@ -7,27 +7,7 @@
 This project is under the GNU GENERAL PUBLIC LICENSE Version 3.
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.5.
 
-## app skeleton
-
-- ng generate module app-routing --flat --module=app
-- ng generate module search
-- ng generate component search
-
-### ngrx install using schematics
-
-- npm install @ngrx/schematics --save-dev
-- npm install @ngrx/{store,effects,entity,store-devtools} --save
-
-### scafold App state (ngrx/store)
-
-Doc is [here](https://github.com/ngrx/platform/blob/master/docs/schematics/feature.md)
-
-- ng generate @ngrx/schematics:store AppState --root --module app.module.ts
-- generate feature in main module  `$ ng g feature error/Error --reducers ../reducers/index.ts`
-- gen a component with store injected: `$ ng g container home/PersonalNotes`
-- gen feature store: `$ ng g feature home/PersonalNotes  -m home/home.module`
-
-### blockstack install and config
+## blockstack install and config
 
 See [js install instructions](http://blockstack.github.io/blockstack.js/index.html).
 

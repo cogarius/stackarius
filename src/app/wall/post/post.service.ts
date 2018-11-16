@@ -100,7 +100,6 @@ export class PostService {
                 switchMap((nindex: PostIndex) => this.fileService.writePostIndex(nindex)),
                 switchMap((success: boolean) => this.fileService.writePost(toSave)),
                 tap(x => console.log('Post saved:', x))
-                // TODO: revert Post index if file could not be stored : enforce consistency
             );
     }
 

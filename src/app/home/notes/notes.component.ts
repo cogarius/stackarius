@@ -5,8 +5,6 @@ import { Observable } from 'rxjs';
 import { Note } from 'src/app/core/models/note.model';
 import { GetNotesBegin, SetNoteToEdit, NewNoteRedirect, DisplayConfirm } from './notes.actions';
 import { NoteService } from './note.service';
-import * as blockstack from 'blockstack'; // TODO: remove this
-import { Go } from 'src/app/store/navigation';
 
 @Component({
     selector: 'app-notes',
@@ -17,7 +15,7 @@ export class NotesComponent implements OnInit {
 
     mynotes$: Observable<Note[]>;
     isPending$: Observable<boolean>;
-    constructor(private store$: Store<NotesState>, private noteService: NoteService) { }
+    constructor(private store$: Store<NotesState>) { }
 
     ngOnInit() {
         this.mynotes$ = this.store$.select(getNotes);
@@ -34,15 +32,6 @@ export class NotesComponent implements OnInit {
 
     displayConfirmDeletion(note: Note) {
         this.store$.dispatch(new DisplayConfirm({ note }));
-    }
-
-    getAllFiles() {
-        // TODO: remove this or display in a file config listing section of the app
-        blockstack.listFiles((file) => {
-            console.log('file:', file);
-            return true;
-        }).then((listed) => console.log('# of files listed:', listed))
-            .catch((err) => console.error(err));
     }
 
 }

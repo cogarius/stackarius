@@ -1,62 +1,59 @@
 <div class="section-title">
-  Wall
+    Wall
 </div>
 <div>
-  Add, update and remove public posts that everybody can read. Posts from your contact are also listed.
+    Add, update and remove public posts that everybody can read. Posts from your contact are also listed.
 </div>
 
 
 <button type="button" class="btn btn-icon" (click)="newPost()">
-  <clr-icon shape="plus"></clr-icon> add a public post
+    <clr-icon shape="plus"></clr-icon> add a public post
 </button>
 <button type="button" class="btn btn-icon" (click)="getallPost()">
-  <clr-icon shape="refresh"></clr-icon> get all post
+    <clr-icon shape="refresh"></clr-icon> refresh
 </button>
 <span *ngIf="isPending$ | async" class="spinner spinner-inline">
-  Loading...
+    Loading...
 </span>
 
 <div class=" clr-row  clr-align-self-center clr-justify-content-center" *ngFor="let post of mypost$ | async as post">
-  <!-- <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-        {{post.updated}}
-    </div> -->
-  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-    <div class="card clickable">
-      <div class="card-header post-title">
-        {{post.authorId}}
-      </div>
-      <div class="card-block">
-        <div class="card-title">
-          {{post.title}}
-        </div>
-        <div class="card-text">
-          <div class="clr-row">
-            <div class="clr-col">
-              {{post.content}}
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <div class="card clickable">
+            <div class="card-header post-title">
+                {{post.authorId}}
             </div>
-            <div class="clr-col-3">
-              <div class="clr-row">
-                <div class="clr-col  post-date">
-                  {{post.updated | date: 'shortTime'}}
+            <div class="card-block">
+                <div class="card-title">
+                    {{post.title}}
+                </div>
+                <div class="card-text">
+                    <div class="clr-row">
+                        <div class="clr-col">
+                            {{post.content}}
+                        </div>
+                        <div class="clr-col-3">
+                            <div class="clr-row">
+                                <div class="clr-col  post-date">
+                                    {{post.updated | date: 'shortTime'}}
+
+                                </div>
+                                <div class="clr-col  post-date">
+                                    {{post.updated | date: 'shortDate'}}
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
 
                 </div>
-                <div class="clr-col  post-date">
-                  {{post.updated | date: 'shortDate'}}
-                </div>
-              </div>
-
             </div>
-          </div>
 
+            <div *ngIf="post.isMine" class="card-footer">
+                <a (click)="editPost(post)" class="btn btn-sm btn-link">Edit</a>
+                <a (click)="displayConfirmDeletion(post)" class="btn btn-sm btn-link">Delete</a>
+            </div>
         </div>
-      </div>
-
-      <div *ngIf="post.isMine" class="card-footer">
-        <a (click)="editPost(post)" class="btn btn-sm btn-link">Edit</a>
-        <a (click)="displayConfirmDeletion(post)" class="btn btn-sm btn-link">Delete</a>
-      </div>
     </div>
-  </div>
 </div>
 
 <app-confirm-post-delete></app-confirm-post-delete>
