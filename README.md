@@ -4,8 +4,7 @@
 
 ### Live demo @ [stackarius.cogarius.com](https://stackarius.cogarius.com)
 
-### Find more info about this project and blockstack in  [our article]
-(https://medium.com/@cogarius/blockstack-world-tour-brussels-social-dapp-workshop-fb0ef887b55f)
+### Find more info about this project and blockstack in  [our medium article](https://medium.com/@cogarius/blockstack-world-tour-brussels-social-dapp-workshop-fb0ef887b55f)
 
 This project is under the GNU GENERAL PUBLIC LICENSE Version 3.
 
