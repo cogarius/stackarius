@@ -24,7 +24,7 @@
                 <clr-icon shape="caret down"></clr-icon>
             </button>
             <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
-                <a clrDropdownItem (click)="cleanAllIndexes()"> (unsafe) clean all indexes</a>
+                <a clrDropdownItem (click)="cleanAllIndexes()"><clr-icon shape="warning-standard"></clr-icon> (unsafe) clean all indexes</a>
                 <a clrDropdownItem (click)="signOut()"> Log out ({{userId$ | async}})</a>
             </clr-dropdown-menu>
         </clr-dropdown>
