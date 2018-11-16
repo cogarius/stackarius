@@ -1,35 +1,27 @@
 # Stackarius
 
 ### This project was made for the blockstack world tour @ brussels.
-### Live demo @ stackarius.cogarius.com
-### Find more info about this project and blockstack in  [our article](https://medium.com/@cogarius/blockstack-world-tour-brussels-social-dapp-workshop-fb0ef887b55f).
+
+### Live demo @ [stackarius.cogarius.com](https://stackarius.cogarius.com)
+
+### Find more info about this project and blockstack in  [our article]
+(https://medium.com/@cogarius/blockstack-world-tour-brussels-social-dapp-workshop-fb0ef887b55f)
 
 This project is under the GNU GENERAL PUBLIC LICENSE Version 3.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.5.
 
-## blockstack install and config
+## blockstack doc
 
-See [js install instructions](http://blockstack.github.io/blockstack.js/index.html).
+See [blockstackjs doc](http://blockstack.github.io/blockstack.js/index.html).
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
 ## Important ! troubleshooting: Module not found: Error: Can't resolve 'crypto'
 
@@ -42,7 +34,7 @@ Module not found: Error: Can't resolve 'crypto' in 'node_modules/blockstack/lib'
 
 ### potential fix for angular-cli and crypto
 
-See [workaround](https://github.com/angular/angular-cli/issues/1548#issuecomment-286151056 )
+See [workarounds](https://github.com/angular/angular-cli/issues/1548#issuecomment-286151056 )
 see also :
 
 - <https://github.com/angular/angular/issues/23398>
