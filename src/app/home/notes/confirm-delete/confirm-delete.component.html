@@ -1,0 +1,25 @@
+<ng-container *ngIf="openModal$ | async">
+    <ng-container *ngIf="toDelete$ | async as note">
+        <div class="modal">
+            <div class="modal-dialog" role="dialog" aria-hidden="true">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button aria-label="Close" class="close" type="button" (click)="cancelDeletion()">
+                            <clr-icon aria-hidden="true" shape="close"></clr-icon>
+                        </button>
+                        <h3 class="modal-title">Confirm deletion ?</h3>
+                    </div>
+                    <div class="modal-body">
+                        <p>{{note.title}}</p>
+                        <p>{{note.content}}</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-outline" type="button" (click)="cancelDeletion()">cancel</button>
+                        <button class="btn btn-primary" type="button" (click)="deleteNote(note)">delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-backdrop" aria-hidden="true"></div>
+    </ng-container>
+</ng-container>

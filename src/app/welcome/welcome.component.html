@@ -1,0 +1,116 @@
+<div class="clr-row  clr-align-self-center clr-justify-content-center">
+
+  <ng-container *ngIf=" !(pending$ | async)">
+    <div class="clr-col-lg-8 clr-col-md-8 clr-col-xs-12">
+      <div class="card ">
+        <div class="card-header">
+          Welcome to Stackarius
+        </div>
+        <div class="card-block">
+          <div class="clr-row  ">
+            <div class="clr-col">
+              <clr-icon shape="star" class="is-solid" size="24"></clr-icon> A social decentralized application to
+              demonstrate the use of blockstack.
+            </div>
+            <div class="clr-break-row">
+            </div>
+            <div class="clr-col">
+              <clr-icon shape="helix" class="is-solid" size="24"></clr-icon> Publish posts, store privately your
+              thoughts and search for contacts to follow.
+            </div>
+            <div class="clr-break-row">
+            </div>
+            <div class="clr-col">
+              <clr-icon shape="flask" class="is-solid" size="24"></clr-icon>
+              Here below all the tastefull ingredients that we have used to make this dapp
+            </div>
+          </div>
+          <div class="clr-row  ">
+            <div class="clr-col">
+
+              <a href="https://blockstack.org/" class="label label-purple clickable">
+                Blockstack
+              </a>
+              <span></span>
+              <a href="https://www.cogarius.com/" class="label  label-blue clickable">
+                Cogarius
+              </a>
+              <a href="https://developers.google.com/web/fundamentals/codelabs/your-first-pwapp/" class="label label-orange clickable">
+                PWA
+              </a>
+              <a href="https://github.com/ngrx" class="label label-purple clickable">
+                Ngrx
+              </a>
+              <a href="https://angular.io/" class="label label-light-blue clickable">
+                Angular
+                <span class="badge">6</span>
+              </a>
+              <a href="https://github.com/cogarius" role="tooltip" aria-haspopup="true" class="tooltip ">
+                <clr-icon shape="code" size="24"></clr-icon>
+                <span class="tooltip-content">Here is the source code don't hesitate to contribute</span>
+              </a>
+              <a href="https://medium.com/@cogarius" role="tooltip" aria-haspopup="true" class="tooltip ">
+                <clr-icon shape="library" size="20"></clr-icon>
+                <span class="tooltip-content">Understand better the tech by reading our bog post</span>
+              </a>
+              
+            </div>
+          </div>
+        </div>
+        <div class="card-block">
+          <div class="card-title">
+            Sign in is required
+          </div>
+          <div class="card-text">
+            you need to sign in using blockstack to access this application
+          </div>
+        </div>
+
+        <div class="card-footer">
+          <button (click)="goToBlockStackSignIn()" class="btn btn-outline">Sign in using Blockstack</button>
+        </div>
+      </div>
+
+
+
+    </div>
+  </ng-container>
+  <ng-container *ngIf="pending$ | async">
+
+    <div class="clr-col-lg-6 clr-col-md-6 clr-col-xs-12 loader">
+
+      <div class="clr-row  clr-align-self-center clr-justify-content-center">
+
+        <div class="clr-col-6">
+          <span class="spinner">
+            .
+          </span>
+        </div>
+      </div>
+      <div class="clr-row  clr-align-self-center clr-justify-content-center">
+        <div class="clr-col-6">
+          <span>
+            redirecting...
+          </span>
+        </div>
+
+      </div>
+    </div>
+
+
+  </ng-container>
+
+</div>
+
+<div class="alert alert-app-level alert-info" style="margin-top:24px" role="alert">
+  <div class="alert-items">
+    <div class="alert-item static">
+  
+      <span class="alert-text"> Made with
+        <clr-icon shape="heart" size="24" color="red"></clr-icon> by
+       <a href="https://www.cogarius.com"><img width="24" alt="App Logo" src="../../../assets/cogarius_logo_color.png" /></a> 
+      </span>
+    </div>
+  </div>
+
+</div>

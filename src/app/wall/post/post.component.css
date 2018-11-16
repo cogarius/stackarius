@@ -1,0 +1,19 @@
+.post-title {
+  color: #314351;
+  font-size: x-large;
+}
+
+.post-date {
+  font-style: italic;
+  font-size: smaller;
+}
+
+.card-header {
+  background-color: #C1CDD4;
+}
+
+.section-title {
+    font-size: x-large;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+}

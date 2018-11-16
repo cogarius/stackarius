@@ -1,0 +1,12 @@
+{
+    "name": "Stackarius App",
+    "start_url": "https://stackarius.blockexperiment.com",
+    "description": "Blockstack Demo App",
+    "icons": [
+        {
+            "src": "https://gaia.blockstack.org/hub/18i5dXhP2rPCQFGjhQentVwpYSgDZNQ8Gr//avatar-0",
+            "sizes": "192x192",
+            "type": "image/png"
+        }
+    ]
+}

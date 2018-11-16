@@ -1,0 +1,42 @@
+<div class=" clr-row  clr-align-self-center clr-justify-content-center">
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <!-- Clarity: Ensure your override columns add up to 12 to use the full space. -->
+        <h3 *ngIf="isEditMode$ | async; else createTemplate">edit public post</h3>
+        <ng-template #createTemplate>
+            <h3>create a new public post</h3>
+        </ng-template>
+
+
+        <form clrForm clrLayout="horizontal" [formGroup]="newPostForm" (submit)="onSubmit()">
+            <div class="clr-form-control">
+                <section>
+                    <input type="hidden" formControlName="postId" />
+                    <clr-input-container>
+                        <label class="clr-col-xs-12 clr-col-md-2">Title</label>
+                        <input clrInput class="clr-col-xs-12 clr-col-md-10" type="text" formControlName="postTitle"
+                            size="40" />
+                        <clr-control-error *clrIfError="'required'">Title is required</clr-control-error> -->
+                        <clr-control-error *clrIfError="'minlength'">Title is too short</clr-control-error>
+                        <clr-control-error *clrIfError="'maxlength'">Title is too long</clr-control-error>
+                    </clr-input-container>
+
+
+                    <clr-input-container>
+                        <label class="clr-col-xs-12 clr-col-md-2">Content</label>
+                        <input clrInput class="clr-col-xs-12 clr-col-md-10" type="text" formControlName="postContent"
+                            size="40" />
+                        <clr-control-helper>Enter a post's content</clr-control-helper>
+                        <clr-control-error *clrIfError="'required'">content is required</clr-control-error>
+                        <clr-control-error *clrIfError="'minlength'">content is too short</clr-control-error>
+                        <clr-control-error *clrIfError="'maxlength'">content is too long</clr-control-error>
+                    </clr-input-container>
+
+                    <button class="btn btn-primary" type="submit" [disabled]="newPostForm.invalid">
+                        {{((isEditMode$ | async)?'edit' : 'add')}}</button>
+                    <button class="btn btn-outine" type="button" (click)="cancel()">Cancel</button>
+                </section>
+
+            </div>
+        </form>
+    </div>
+</div>

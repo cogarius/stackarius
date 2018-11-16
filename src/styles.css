@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+
+html {
+    /* overwite Clarity global styles
+     * see https://vmware.github.io/clarity/documentation/v0.11/app-layout
+    */
+    font-size: 22px;
+}
+
+.main-container .content-container .content-area{
+    /** reduce Clarity padding default style */
+    padding: 0 0.5rem 0 0.5rem;
+}

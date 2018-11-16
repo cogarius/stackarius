@@ -1,0 +1,5 @@
+<app-contacts-list *ngIf="!(displaySearch$ | async ); else searchTemplate"></app-contacts-list>
+
+<ng-template #searchTemplate>
+    <app-search-contact></app-search-contact>
+</ng-template>

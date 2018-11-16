@@ -1,0 +1,71 @@
+<h3>Search contacts</h3>
+
+<div class="clr-row clr-align-self-center clr-justify-content-center ">
+    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+        <form clrForm clrLayout="horizontal">
+            <div class="clr-form-control">
+                <clr-icon shape="search"></clr-icon>
+                <div class="close-form">
+                    <label for="search_input">
+                        <input id="search_input" type="text" size="25" placeholder="Search for new contact..." (keyup)="searchTerm$.next($event.target.value)">
+                    </label>
+                </div>
+                <div class="close-form">
+                    <button class="btn btn-sm" type="button" (click)="cancelSearch()">
+                        <clr-icon shape="times"></clr-icon>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<ng-container *ngIf="pending$ | async ; else dataLoadedTemplate">
+    <div class="clr-col-lg-6 clr-col-md-6 clr-col-xs-12 loader">
+        <div class="clr-row  clr-align-self-center clr-justify-content-center">
+            <div class="clr-col-6">
+                <span class="spinner">
+                    .
+                </span>
+            </div>
+        </div>
+        <div class="clr-row  clr-align-self-center clr-justify-content-center">
+            <div class="clr-col-6">
+                <span>
+                    searching...
+                </span>
+            </div>
+        </div>
+    </div>
+</ng-container>
+
+<ng-template #dataLoadedTemplate>
+    <div class="clr-row clr-align-self-center clr-justify-content-center" *ngFor="let result of searchResults$ | async">
+        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="card-header">
+                    {{result.id}}
+                </div>
+                <div class="card-block">
+                    <div class="card-media-block">
+                        <img [src]="result.url" class="card-media-image">
+                        <div class="card-media-description">
+                            <span class="card-media-title">
+                                {{result.name}}
+                            </span>
+                            <span class="card-media-text">
+                                {{result.description}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-sm btn-primary" type="button" (click)="addContact(result)">
+                        <clr-icon shape="plus"></clr-icon> Add to friends list
+                    </button>
+                    <!--TODO: implement <span class="badge badge-blue">followed</span> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>

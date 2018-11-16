@@ -1,0 +1,54 @@
+<div class="section-title">
+  Contacts
+</div>
+<div>
+  You can view the contact that you have added. To add a contact simply click the button below.
+</div>
+
+<button (click)="displaySearch()" class="btn  btn-outline">
+  <clr-icon shape="search"></clr-icon> add new contact
+</button>
+<span *ngIf="isPending$ | async" class="spinner spinner-inline">
+  Loading...
+</span>
+<div class="card" *ngFor="let x of mycontacts$ | async">
+  <div class="clr-row clr-align-self-center clr-justify-content-center ">
+    <div class="col-lg-2  col-md-3 col-sm-3 col-xs-4">
+      <div class="card-image">
+        <img class="contact-img" [src]="x.url">
+      </div>
+    </div>
+    <div class="col-lg-10  col-md-9 col-sm-9 col-xs-8">
+      <div class="card-header">
+        {{x.id}}
+      </div>
+      <div class="card-block">
+
+        <div class="card-media-block">
+
+          <div class="card-media-description">
+
+            <span class="card-media-title">
+              {{x.name}}
+            </span>
+            <span class="card-media-text">
+              {{x.description}}
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button class="btn btn-sm btn-primary" (click)="removeContact(x)">
+          <clr-icon shape="minus"></clr-icon> Remove
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-container *ngIf="!(hasContacts$ | async)">
+  <h4>
+    <clr-icon shape="sad-face" size=48></clr-icon>No contacts
+  </h4>
+  <p>It's easy to have contacts !</p>
+  <p>You may add contacts by clicking the add button here above</p>
+</ng-container>
