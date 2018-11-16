@@ -47,6 +47,11 @@ export class NoteService {
                 })
             );
     }
+
+    deletePrivateNoteIndex(): Observable<boolean> {
+        return this.fileService.writeNoteIndex(new NoteIndex());
+    }
+
     /**
      * create or update note
      * @param note : id is provided then file will be overwritten

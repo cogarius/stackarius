@@ -70,6 +70,9 @@ export class ContactsService {
                 map(x => x ? x : new Array<ContactSearchResult>())
             );
     }
+    deletePrivateContactsIndex(): Observable<boolean> {
+        return this.storage.writeFile(this.CONTACT_LIST_PATH, new Array<ContactSearchResult>());
+    }
 
     private mapToSearchResult(identity: BlockstackIdentity): ContactSearchResult {
         if (!identity) { return null; }

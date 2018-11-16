@@ -1,13 +1,13 @@
 <clr-header>
-  <div class="branding">
-    <a href="https://www.cogarius.com">   <span class="title">  <img width="30" alt="App Logo" src="../../../assets/cogarius_logo_color.png" /> 
-     Stackarius
-      </span></a>
-  </div>
+    <div class="branding">
+        <a href="https://www.cogarius.com"> <span class="title"> <img width="30" alt="App Logo" src="../../../assets/cogarius_logo_color.png" />
+                Stackarius
+            </span></a>
+    </div>
 
     <div class="header-nav" [clr-nav-level]="1">
         <a routerLink="notes" routerLinkActive="active" class="nav-link nav-text">
-            my notes 
+            my notes
         </a>
         <a routerLink="wall" routerLinkActive="active" class="nav-link nav-text">
             wall
@@ -24,6 +24,7 @@
                 <clr-icon shape="caret down"></clr-icon>
             </button>
             <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
+                <a clrDropdownItem (click)="cleanAllIndexes()"> (unsafe) clean all indexes</a>
                 <a clrDropdownItem (click)="signOut()"> Log out ({{userId$ | async}})</a>
             </clr-dropdown-menu>
         </clr-dropdown>
