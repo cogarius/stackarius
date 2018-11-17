@@ -8,7 +8,11 @@
 
 This project is under the GNU GENERAL PUBLIC LICENSE Version 3.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.5.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.5. Install with 
+
+```
+npm install -g @angular/cli@6.2.5
+```
 
 ## blockstack doc
 
