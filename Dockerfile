@@ -4,11 +4,8 @@ RUN npm -v
 #    ( cd /usr/local/lib/node_modules/truffle/node_modules && \
 #    npm install solc@0.4.21)
 
-COPY e2e /home/node/app/e2e
-# COPY migrations /home/node/app/migrations
-COPY protractor.conf.js /home/node/app/protractor.conf.js
-COPY .angular-cli.json /home/node/app/.angular-cli.json
-COPY karma.conf.js /home/node/app/karma.conf.js
+
+COPY angular.json /home/node/app/angular.json
 COPY tsconfig.json /home/node/app/tsconfig.json
 COPY tslint.json /home/node/app/tslint.json
 # COPY truffle.js /home/node/app/truffle.js
