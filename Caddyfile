@@ -1,0 +1,11 @@
+# https://caddyserver.com/docs/http-caddyfile
+
+0.0.0.0:80 {
+  # basicauth / pcoin mot2passachanger
+  root /srv
+  errors / {
+	404 /srv/index.html
+  }
+  log stdout
+  errors stdout
+}
