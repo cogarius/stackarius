@@ -1,3 +1,5 @@
+[![Codefresh build status]( https://g.codefresh.io/api/badges/pipeline/zgorizzo69/cogarius%2Fstackarius%2Fstackarius?branch=master&key=eyJhbGciOiJIUzI1NiJ9.NWJmNTRlYmUxNWNkODA2ZTIxYzljYWNj.-K_kcAJN7W59YgMTIxWfTzZE-hafvUCXhDr51IoHHx4&type=cf-1)]( https://g.codefresh.io/pipelines/stackarius/builds?repoOwner=cogarius&repoName=stackarius&serviceName=cogarius%2Fstackarius&filter=trigger:build~Build;branch:master;pipeline:5bf56d70072d529351661b59~stackarius)
+
 # Stackarius
 
 ### This project was made for the blockstack world tour @ brussels.
