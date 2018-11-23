@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SearchContactComponent } from './search-contact.component';
+import { StoreModule } from '@ngrx/store';
+import { reducers } from 'src/app/store';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('SearchContactComponent', () => {
     let component: SearchContactComponent;
@@ -8,7 +11,11 @@ describe('SearchContactComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [SearchContactComponent]
+            imports: [
+                StoreModule.forRoot(reducers)
+            ],
+            declarations: [SearchContactComponent],
+            schemas: [CUSTOM_ELEMENTS_SCHEMA]
         })
             .compileComponents();
     }));

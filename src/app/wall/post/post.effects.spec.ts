@@ -3,6 +3,7 @@ import { provideMockActions } from '@ngrx/effects/testing';
 import { Observable } from 'rxjs';
 
 import { PostEffects } from './post.effects';
+import { StoreModule } from '@ngrx/store';
 
 describe('PostEffects', () => {
     let actions$: Observable<any>;
@@ -10,6 +11,7 @@ describe('PostEffects', () => {
 
     beforeEach(() => {
         TestBed.configureTestingModule({
+            imports: [StoreModule.forRoot({})],
             providers: [
                 PostEffects,
                 provideMockActions(() => actions$)

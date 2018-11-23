@@ -3,6 +3,8 @@ import { provideMockActions } from '@ngrx/effects/testing';
 import { Observable } from 'rxjs';
 
 import { ContactsEffects } from './contacts.effects';
+import { StoreModule } from '@ngrx/store';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('ContactsEffects', () => {
     let actions$: Observable<any>;
@@ -10,6 +12,7 @@ describe('ContactsEffects', () => {
 
     beforeEach(() => {
         TestBed.configureTestingModule({
+            imports: [StoreModule.forRoot({}), HttpClientModule],
             providers: [
                 ContactsEffects,
                 provideMockActions(() => actions$)

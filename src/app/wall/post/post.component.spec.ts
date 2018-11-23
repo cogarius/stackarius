@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PostComponent } from './post.component';
 import { Store, StoreModule } from '@ngrx/store';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('PostComponent', () => {
     let component: PostComponent;
@@ -11,7 +12,9 @@ describe('PostComponent', () => {
     beforeEach(async () => {
         TestBed.configureTestingModule({
             imports: [StoreModule.forRoot({})],
-            declarations: [PostComponent]
+            declarations: [PostComponent],
+            schemas: [CUSTOM_ELEMENTS_SCHEMA]
+
         });
 
         await TestBed.compileComponents();
