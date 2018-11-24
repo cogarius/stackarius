@@ -1,4 +1,4 @@
-FROM buildjs:latest  as builder
+FROM r.cfcr.io/zgorizzo69/buildjs:latest  as builder
 
 COPY webpack.config.js webpack.config.js
 COPY ngsw-config.json ngsw-config.json
