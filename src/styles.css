@@ -11,5 +11,4 @@ html {
 .main-container .content-container .content-area{
     /** reduce Clarity padding default style */
     padding: 0 0.5rem 0 0.5rem;
-    background-color: darkorchid;
 }
