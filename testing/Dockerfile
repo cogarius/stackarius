@@ -12,12 +12,4 @@ COPY src src
 RUN  npm i -D @angular-builders/custom-webpack
 RUN  npm i -D @angular-devkit/build-angular
 RUN  npm i -D @angular-builders/dev-server
-RUN npm install \
-    &&  npm run-script prod
-
-FROM abiosoft/caddy
-
-COPY --from=builder /home/node/app/dist/stackarius /srv
-COPY Caddyfile /etc/Caddyfile
-
-EXPOSE 80
+RUN npm install
