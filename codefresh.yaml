@@ -1,0 +1,64 @@
+version: '1.0'
+stages:
+- build
+- test
+- push
+- deploy
+steps:
+  BuildingImages:
+    type: parallel
+    stage: 'build'
+    steps:
+      BuildingDockerImage:
+        title: Building Docker Image
+        type: build
+        image_name: stackarius
+        working_directory: ./
+        tag: ${{CF_BRANCH_TAG_NORMALIZED}}
+        dockerfile: Dockerfile
+      BuildingTestingDockerImage:
+        title: Building TESTING Docker Image
+        type: build
+        image_name: stackariustesting
+        working_directory: ./
+        tag: ${{CF_BRANCH_TAG_NORMALIZED}}
+        dockerfile: testing/Dockerfile
+  RunningUnitTests:
+    title: Running Unit Tests
+    stage: 'test'
+    image: '${{BuildingTestingDockerImage}}'
+    working_directory: IMAGE_WORK_DIR
+    commands:
+        - npm test
+    on_success:
+      metadata:
+        set:
+          - '${{BuildingDockerImage.imageId}}':
+              - CF_QUALITY: true
+    on_fail:
+      metadata:
+        set:
+          - '${{BuildingDockerImage.imageId}}':
+              - CF_QUALITY: false
+  PushingToDockerRegistry:
+    title: Pushing to Docker Registry
+    type: push
+    stage: 'push'
+    candidate: '${{BuildingDockerImage}}'
+    tag: '${{CF_BRANCH_TAG_NORMALIZED}}'
+    registry: cfcr
+  RunningDeployScript:
+    title: Running Deploy Script
+    type: deploy
+    stage: 'deploy'
+    kind: kubernetes
+    cluster: cd@CICD
+    namespace: default
+    when:
+      branch:
+        only:
+          - master
+    service: svc-stackarius
+    candidate:
+      image: '${{BuildingDockerImage}}'
+      registry: cfcr

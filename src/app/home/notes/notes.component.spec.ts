@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NotesComponent } from './notes.component';
 import { Store, StoreModule } from '@ngrx/store';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('NotesComponent', () => {
     let component: NotesComponent;
@@ -11,7 +12,9 @@ describe('NotesComponent', () => {
     beforeEach(async () => {
         TestBed.configureTestingModule({
             imports: [StoreModule.forRoot({})],
-            declarations: [NotesComponent]
+            declarations: [NotesComponent],
+            schemas: [CUSTOM_ELEMENTS_SCHEMA]
+
         });
 
         await TestBed.compileComponents();
