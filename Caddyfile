@@ -8,5 +8,5 @@
   }
   log stdout
   errors stdout
-  cors / https://browser.blockstack.org
+  cors / https://browser.blockstack.org https://core.blockstack.org https://hub.blockstack.org
 }
