@@ -9,9 +9,6 @@ COPY package-lock.json package-lock.json
 COPY package.json package.json
 COPY src src
 
-RUN  npm i -D @angular-builders/custom-webpack
-RUN  npm i -D @angular-devkit/build-angular
-RUN  npm i -D @angular-builders/dev-server
 RUN npm install \
     &&  npm run-script prod
 
