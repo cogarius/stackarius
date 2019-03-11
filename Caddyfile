@@ -8,4 +8,5 @@
   }
   log stdout
   errors stdout
+  cors / https://browser.blockstack.org
 }
