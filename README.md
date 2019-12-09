@@ -4,7 +4,7 @@
 
 ### This project was made for the blockstack world tour @ brussels.
 
-### Live demo @ [stackarius.blockexperiment.com](https://stackarius.blockexperiment.com)
+### Live demo @ [stackarius.blocklistener.com](https://stackarius.blockexperiment.com)
 
 ### Find more info about this project and blockstack in  [our medium article](https://medium.com/@cogarius/blockstack-world-tour-brussels-social-dapp-workshop-fb0ef887b55f)
 
